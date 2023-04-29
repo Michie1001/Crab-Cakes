@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Collectiblecount : MonoBehaviour
 {
     TMPro.TMP_Text text;
     int count;
+    public GameObject EndText;
 
     void Awake()
     {
@@ -19,12 +21,27 @@ public class Collectiblecount : MonoBehaviour
 
     void OnCollectibleCollected()
     {
-        count++;
-        UpdateCount();
+        if(count == Collectible.total)
+        {
+            StartCoroutine(ChottoMatte());
+        }
+        else
+        {
+            count++;
+            UpdateCount();
+        }
     }
 
     void UpdateCount()
     {
         text.text = $"{count} / {Collectible.total}";
+    }
+
+    IEnumerator ChottoMatte()
+    {
+        EndText.SetActive(true);
+        yield return new WaitForSeconds(5);
+        //Debug.log("Quit game");
+        Application.Quit();
     }
 }

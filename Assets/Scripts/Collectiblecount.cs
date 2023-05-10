@@ -23,6 +23,7 @@ public class Collectiblecount : MonoBehaviour
     {
         if(count == Collectible.total)
         {
+            EndText.SetActive(true);
             StartCoroutine(ChottoMatte());
         }
         else
@@ -39,7 +40,6 @@ public class Collectiblecount : MonoBehaviour
 
     IEnumerator ChottoMatte()
     {
-        EndText.SetActive(true);
         yield return new WaitForSeconds(5);
         //Debug.log("Quit game");
         Application.Quit();

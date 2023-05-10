@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class Play : MonoBehaviour
 {
     private int scene = 0;
-    public void OnClick()
+    public void Start()
     {
-        PlayGame();
+        StartCoroutine(PlayGame());
     }
-    void PlayGame()
+    IEnumerator PlayGame()
     {
+        yield return new WaitForSeconds(20);
         SceneManager.LoadScene(scene + 1);
     }
 }

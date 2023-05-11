@@ -7,7 +7,7 @@ public class Collectiblecount : MonoBehaviour
 {
     TMPro.TMP_Text text;
     int count;
-    public GameObject EndText;
+    public GameObject endText;
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class Collectiblecount : MonoBehaviour
     {
         if(count == Collectible.total)
         {
-            EndText.SetActive(true);
+            endText.SetActive(true);
             StartCoroutine(ChottoMatte());
         }
         else

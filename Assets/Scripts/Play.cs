@@ -12,7 +12,7 @@ public class Play : MonoBehaviour
     }
     IEnumerator PlayGame()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(10);
         SceneManager.LoadScene(scene + 1);
     }
 }
